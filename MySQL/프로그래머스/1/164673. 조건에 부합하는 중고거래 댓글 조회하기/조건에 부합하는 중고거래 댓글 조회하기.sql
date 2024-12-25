@@ -1,0 +1,11 @@
+-- 코드를 입력하세요
+SELECT ugb.TITLE, 
+       ugb.BOARD_ID, 
+       ugr.REPLY_ID,
+       ugr.WRITER_ID,
+       ugr.CONTENTS,
+       DATE_FORMAT(ugr.CREATED_DATE, '%Y-%m-%d') CREATED_DATE
+FROM USED_GOODS_BOARD ugb, USED_GOODS_REPLY ugr
+WHERE ugb.BOARD_ID = ugr.BOARD_ID
+AND ugb.CREATED_DATE LIKE '2022-10%'
+ORDER BY CREATED_DATE, TITLE;
