@@ -1,0 +1,13 @@
+-- 코드를 작성해주세요
+## -- step 1
+# SELECT a.ID PARENT, b.ID CHILD
+# FROM ECOLI_DATA a
+# LEFT JOIN ECOLI_DATA b
+# ON a.ID = b.PARENT_ID
+
+## -- step 2
+SELECT a.ID, COUNT(b.ID) CHILD_COUNT
+FROM ECOLI_DATA a
+LEFT JOIN ECOLI_DATA b
+    ON a.ID = b.PARENT_ID
+GROUP BY a.ID;
