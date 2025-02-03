@@ -1,0 +1,7 @@
+-- 코드를 작성해주세요
+select THIRD.ID
+from ECOLI_DATA as FIRST
+left join ECOLI_DATA as SECOND on FIRST.ID = SECOND.PARENT_ID
+left join ECOLI_DATA as THIRD on SECOND.ID = THIRD.PARENT_ID
+where FIRST.PARENT_ID is NULL and THIRD.ID is NOT NULL
+order by THIRD.ID;
