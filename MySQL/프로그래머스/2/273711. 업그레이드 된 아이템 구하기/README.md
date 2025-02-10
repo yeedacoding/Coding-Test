@@ -1,6 +1,6 @@
 # [level 2] 업그레이드 된 아이템 구하기 - 273711 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/273711#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/273711) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 12월 29일 17:14:24
+2025년 02월 10일 16:04:03
 
 ### 문제 설명
 
@@ -73,10 +73,13 @@ ROOT 아이템은 'ITEM_A'가 됩니다.</p>
 <td>INTEGER</td>
 <td>FALSE</td>
 </tr>
+<tr>
+<td>PARENT_ITEM_ID</td>
+<td>INTEGER</td>
+<td>TRUE</td>
+</tr>
 </tbody>
       </table>
-<p>| PARENT_ITEM_ID | INTEGER | TRUE |</p>
-
 <p>단, 각 아이템들은 오직 하나의 PARENT 아이템 ID를 가지며, ROOT 아이템의 PARENT 아이템 ID는 NULL 입니다.</p>
 
 <p>ROOT 아이템이 없는 경우는 존재하지 않습니다.</p>

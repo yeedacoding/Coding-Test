@@ -1,10 +1,11 @@
 -- 코드를 작성해주세요
-SELECT ii.ITEM_ID, ii.ITEM_NAME, ii.RARITY
-FROM ITEM_INFO ii
-JOIN ITEM_TREE it
-ON ii.ITEM_ID = it.ITEM_ID
-WHERE it.PARENT_ITEM_ID in (
-        SELECT ITEM_ID
-        FROM ITEM_INFO
-        WHERE RARITY = 'RARE')
-ORDER BY ii.ITEM_ID DESC;
+select II.ITEM_ID,
+       II.ITEM_NAME,
+       II.RARITY
+from ITEM_INFO II
+join ITEM_TREE IT on II.ITEM_ID = IT.ITEM_ID
+where IT.PARENT_ITEM_ID in (
+      select ITEM_ID
+      FROM ITEM_INFO
+      where RARITY = 'RARE')
+order by II.ITEM_ID desc;
