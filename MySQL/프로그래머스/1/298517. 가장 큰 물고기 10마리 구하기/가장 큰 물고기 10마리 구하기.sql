@@ -1,6 +1,6 @@
 -- 코드를 작성해주세요
-SELECT ID, LENGTH
-FROM FISH_INFO
-WHERE LENGTH > 10
-ORDER BY LENGTH DESC, ID
-LIMIT 10;
+select ID,
+       LENGTH
+from FISH_INFO
+order by LENGTH desc, ID
+limit 10;
