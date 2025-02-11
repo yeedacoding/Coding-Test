@@ -1,9 +1,11 @@
 -- 코드를 작성해주세요
 # bit 연산
-SELECT ID, EMAIL, FIRST_NAME, LAST_NAME
-FROM DEVELOPERS
-WHERE
-    SKILL_CODE & (SELECT CODE FROM SKILLCODES WHERE NAME = "Python")
-    or
-    SKILL_CODE & (SELECT CODE FROM SKILLCODES WHERE NAME = "C#")
-ORDER BY ID;
+select distinct(D.ID),
+       D.EMAIL,
+       D.FIRST_NAME,
+       D.LAST_NAME
+from DEVELOPERS D
+join SKILLCODES SC on SC.CODE & D.SKILL_CODE
+where SC.NAME = 'C#'
+   or SC.NAME = 'Python'
+order by D.ID;
