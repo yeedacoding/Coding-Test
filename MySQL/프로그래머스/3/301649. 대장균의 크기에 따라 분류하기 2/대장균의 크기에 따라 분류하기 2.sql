@@ -1,16 +1,31 @@
 -- 코드를 작성해주세요
-select 
-    result.ID,  # result 테이블에서 RANKING 기준 4분위로 구분
+### 1. 윈도우함수 : RANK()
+# select result.ID,
+#     case
+#         when result.RANKING / result.TOTAL_COUNT <= 0.25 then 'CRITICAL'
+#         when result.RANKING / result.TOTAL_COUNT <= 0.5 then 'HIGH'
+#         when result.RANKING / result.TOTAL_COUNT <= 0.75 then 'MEDIUM'
+#         else 'LOW'
+#     end as COLONY_NAME
+# from
+#     (select *,
+#            rank() over(order by SIZE_OF_COLONY desc) as RANKING,
+#            count(*) over() as TOTAL_COUNT
+#     from ECOLI_DATA)
+#     as result
+# order by result.ID;
+
+### 2. 윈도우함수 : NTILE()
+select result.ID,
     case
-        when result.RANKING / result.TOTAL_COUNT * 100 <= 25 THEN 'CRITICAL'
-        when result.RANKING / result.TOTAL_COUNT * 100 <= 50 THEN 'HIGH'
-        when result.RANKING / result.TOTAL_COUNT * 100 <= 75 THEN 'MEDIUM'
+        when result.RANKING = 1 then 'CRITICAL'
+        when result.RANKING = 2 then 'HIGH'
+        when result.RANKING = 3 then 'MEDIUM'
         else 'LOW'
     end as COLONY_NAME
 from
-    (select 
-        *,   # SIZE_OF_COLONY 기준 내림차순한 결과의 랭크와 총 데이터 개수 => result 테이블
-        rank() over(order by SIZE_OF_COLONY desc) as RANKING,
-        count(*) over() as TOTAL_COUNT
-    from ECOLI_DATA) as result
-order by result.ID
+    (select *,
+            ntile(4) over(order by SIZE_OF_COLONY desc) as RANKING
+    from ECOLI_DATA)
+    as result
+order by result.ID;
