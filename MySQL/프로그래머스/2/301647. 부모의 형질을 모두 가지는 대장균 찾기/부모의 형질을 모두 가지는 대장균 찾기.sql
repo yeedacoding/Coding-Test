@@ -1,9 +1,8 @@
 -- 코드를 작성해주세요
-SELECT a.ID, 
-       a.GENOTYPE, 
-       b.GENOTYPE PARENT_GENOTYPE
-FROM ECOLI_DATA a           # a = child
-    LEFT JOIN ECOLI_DATA b  # b = parent
-    ON a.PARENT_ID = b.ID
-WHERE a.GENOTYPE & b.GENOTYPE = b.GENOTYPE
-ORDER BY a.ID;
+select C.ID,
+       C.GENOTYPE,
+       P.GENOTYPE PARENT_GENOTYPE
+from ECOLI_DATA C
+join ECOLI_DATA P on C.PARENT_ID = P.ID
+where C.GENOTYPE & P.GENOTYPE = P.GENOTYPE
+order by C.ID;
