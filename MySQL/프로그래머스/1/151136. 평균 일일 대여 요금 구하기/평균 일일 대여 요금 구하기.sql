@@ -1,4 +1,3 @@
--- 코드를 입력하세요
-select round(avg(daily_fee)) AVERAGE_FEE
-from CAR_RENTAL_COMPANY_CAR
-where car_type = 'SUV';
+SELECT ROUND(AVG(daily_fee), 0) AVGERAGE_FEE
+FROM car_rental_company_car
+WHERE car_type='SUV';
