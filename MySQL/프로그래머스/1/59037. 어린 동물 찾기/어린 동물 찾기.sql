@@ -1,7 +1,3 @@
--- 코드를 입력하세요
-# AGED=늙은
-select ANIMAL_ID,
-       NAME
-from ANIMAL_INS
-where INTAKE_CONDITION != "Aged"
-order by ANIMAL_ID;
+SELECT animal_id, name
+FROM animal_ins
+WHERE intake_condition NOT LIKE 'Aged'
