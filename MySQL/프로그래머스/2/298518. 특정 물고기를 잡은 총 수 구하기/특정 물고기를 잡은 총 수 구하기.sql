@@ -1,6 +1,5 @@
--- 코드를 작성해주세요
-select count(*) FISH_COUNT
-from FISH_INFO FI
-left join FISH_NAME_INFO FNI on FI.FISH_TYPE = FNI.FISH_TYPE
-where (FNI.FISH_NAME = 'BASS')
-   or (FNI.FISH_NAME = 'SNAPPER');
+SELECT COUNT(id) FISH_COUNT
+FROM fish_info fi
+    LEFT JOIN fish_name_info fni ON fi.fish_type = fni.fish_type
+WHERE fni.fish_name = 'BASS' 
+    OR fni.fish_name = 'SNAPPER'
