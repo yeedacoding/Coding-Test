@@ -1,4 +1,3 @@
--- 코드를 작성해주세요
-select count(*) FISH_COUNT
-from FISH_INFO
-where LENGTH is NULL;
+SELECT COUNT(id) FISH_COUNT
+FROM fish_info
+WHERE length IS NULL;
