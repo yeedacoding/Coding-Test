@@ -1,3 +1,4 @@
--- 코드를 입력하세요
-select max(PRICE) MAX_PRICE
-from PRODUCT;
+-- 1. SUBQUERY 
+SELECT price AS MAX_PRICE
+FROM product
+WHERE price = (SELECT MAX(price) FROM product)
