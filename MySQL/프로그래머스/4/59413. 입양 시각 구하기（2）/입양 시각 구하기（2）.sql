@@ -1,16 +1,12 @@
 WITH RECURSIVE cte AS (
-    SELECT 0 AS HOUR
+    SELECT 0 AS hour
     UNION ALL
-    SELECT HOUR + 1 FROM cte WHERE HOUR < 23
+    SELECT hour + 1 FROM cte WHERE hour < 23
 )
 
-SELECT
-    CASE
-        WHEN HOUR(ao.datetime) IS NULL THEN cte.HOUR
-        ELSE HOUR(ao.datetime)
-    END HOUR,
-    COUNT(animal_id) COUNT
-FROM animal_outs ao
-    RIGHT JOIN cte ON HOUR(ao.datetime) = cte.HOUR
+SELECT cte.hour HOUR,
+       COUNT(ao.animal_id) COUNT
+FROM cte
+    LEFT JOIN animal_outs ao ON cte.hour = HOUR(ao.datetime)
 GROUP BY HOUR
 ORDER BY HOUR
